@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function SongEditor({ song, onSave }) {
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    if (song) {
-      setTitle(song.title || '');
-      setText(song.text || '');
-    } else {
-      setTitle('');
-      setText('');
-    }
-  }, [song]);
+  const [title, setTitle] = useState(song ? (song.title || '') : '');
+  const [text, setText] = useState(song ? (song.text || '') : '');
 
   const handleSave = () => {
     if (!title.trim() && !text.trim()) return;

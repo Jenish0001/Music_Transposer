@@ -96,7 +96,7 @@ function App() {
               </div>
 
               {activeTab === 'editor' ? (
-                <SongEditor song={selectedSong} onSave={handleSave} />
+                <SongEditor key={selectedSong.id} song={selectedSong} onSave={handleSave} />
               ) : (
                 <>
                   <TransposePanel

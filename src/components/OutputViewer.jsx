@@ -72,7 +72,7 @@ function PairBlock({ pair, saNote, transposeSteps, viewMode }) {
           {(viewMode === 'western' || viewMode === 'both') && (
             <div className="notation-western">
               <span className="label">Western:</span>
-              {renderWestern(tokens, saNote, transposeSteps)}
+              {renderWestern(tokens, saNote)}
             </div>
           )}
         </>
@@ -117,7 +117,7 @@ function renderTransposedSargam(tokens) {
   );
 }
 
-function renderWestern(tokens, saNote, transposeSteps) {
+function renderWestern(tokens, saNote) {
   return (
     <span className="note-line">
       {tokens.map((token, i) => {
