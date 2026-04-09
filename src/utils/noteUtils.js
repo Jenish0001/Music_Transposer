@@ -127,7 +127,7 @@ export function semitoneToSargam(semitone) {
  * Render a note object back to sargam string.
  */
 export function noteToSargam(noteObj) {
-  if (!noteObj || noteObj.swar === '?') return noteObj?.raw || '?';
+  if (!noteObj || noteObj?.swar === '?') return noteObj?.raw || '?';
   let s = noteObj.swar;
   if (noteObj.tivra) s = 'm'; // tivra Ma rendered as lowercase m
   if (noteObj.komal) s += '(k)';
