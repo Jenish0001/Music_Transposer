@@ -63,7 +63,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>🎼 Sargam Transposer</h1>
-        <p className="subtitle">Store and transpose Indian sargam notations</p>
+        <p className="subtitle">Store and transpose Nepali , Indian and Western Sargam Notations</p>
       </header>
 
       <div className="app-body">

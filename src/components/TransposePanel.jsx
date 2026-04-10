@@ -28,7 +28,16 @@ function TransposePanel({ saNote, setSaNote, transposeSteps, setTransposeSteps }
           className="slider"
         />
         <div className="slider-labels">
-          <span>-6</span><span>0</span><span>+6</span>
+          <span>-6</span><span>to</span><span>+6</span>
+        </div>
+        <div className="reset">
+          <button onClick={() => setTransposeSteps(0)} className="reset-button">Reset</button>
+          </div>
+        </div>
+        <div className="transpose-r0w">
+          <div className="effectiveSa">
+            <strong>Effective Sa: </strong>
+            <span className="effective-sa-note">{SA_OPTIONS[(SA_OPTIONS.indexOf(saNote) + transposeSteps + 12) % 12]}</span>
         </div>
       </div>
     </div>

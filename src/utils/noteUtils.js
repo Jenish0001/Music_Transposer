@@ -19,10 +19,14 @@ export const SWAR_ORDER = ['S', 'R', 'G', 'M', 'P', 'D', 'N'];
 export function parseNote(token) {
   // Match: optional note letter, optional (k), optional octave marker '
   // Valid: S, R, G, M, P, D, N with optional (k), m (tivra), and optional '
-  const match = token.match(/^([SRGMmPDN])(\(k\))?('?)$/);
+  const match = token.match(/^([SRGMmPDNsrgpdn])(\(k\))?('?)$/);
   if (!match) return null;
 
-  const rawSwar = match[1];
+  let rawSwar = match[1];
+  // Convert lowercase to uppercase (except 'm' for tivra)
+  if (rawSwar !== 'm') {
+    rawSwar = rawSwar.toUpperCase();
+  }
   const komal = match[2] === '(k)';
   const octave = match[3] === "'" ? 1 : 0;
 
@@ -42,7 +46,7 @@ export function tokenizeNotation(line) {
   let i = 0;
   while (i < line.length) {
     // Try to match a note: [SRGMmPDN] optionally followed by (k) and/or '
-    const noteMatch = line.slice(i).match(/^([SRGMmPDN])(\(k\))?('?)/);
+    const noteMatch = line.slice(i).match(/^([SRGMmPDNsrgpdn])(\(k\))?('?)/);
     if (noteMatch) {
       const raw = noteMatch[0];
       const noteObj = parseNote(raw);
