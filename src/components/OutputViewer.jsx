@@ -58,7 +58,7 @@ function PairBlock({ pair, saNote, transposeSteps, viewMode }) {
         <div className="lyrics-line">{pair.lyrics}</div>
       )}
       {pair.notation.trim() && (
-        <>
+        <div className="notation-block">
           <div className="notation-original">
             <span className="label">Original:</span>
             {renderOriginalTokens(tokens)}
@@ -75,7 +75,7 @@ function PairBlock({ pair, saNote, transposeSteps, viewMode }) {
               {renderWestern(tokens, saNote)}
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );
